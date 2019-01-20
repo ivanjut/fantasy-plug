@@ -1,0 +1,38 @@
+.cover-container {
+    position: relative;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.motto-container {
+    width: 60%;
+    min-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--fantasy-plug-blue);
+    border-radius: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.motto {
+    color: white;
+    text-align: center;
+    padding: 2%;
+}
+
+.football-player {
+    position: relative;
+    height: 500px;
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
+
+.particles {
+    position: absolute;
+    height: 500px;
+    width: 100%;
+}

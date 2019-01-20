@@ -1,0 +1,29 @@
+.item-container {
+    height: 300px;
+    margin: 10%;
+    border: white solid 3px;
+    background-color: var(--fantasy-plug-blue);
+    border-radius: 30px;
+    padding: 4%;
+}
+
+.item-container:hover {
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition:transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.icon {
+    width: 100%;
+    text-align: center;
+}
+
+.text {
+    text-align: center;
+    margin-top: 15%;
+}

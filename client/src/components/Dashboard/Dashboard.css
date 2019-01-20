@@ -1,0 +1,17 @@
+.page-container {
+    background-color: grey;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+}
+
+.item {
+    color: white;
+}
+
+.item:hover {
+    color: lightgray;
+}

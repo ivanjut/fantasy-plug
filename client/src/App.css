@@ -1,0 +1,9 @@
+.app-container {
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+    background-color: #e9ecef;
+}
+
+.main {
+    margin-top: 56px;
+    min-height: 740px;
+}
