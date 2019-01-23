@@ -40,7 +40,7 @@ class Cover extends Component {
             <div className='cover-container'>
                 <Particles className='particles' params={particlesOptions} />
                 <div className='motto-container'>
-                    <h2 className='motto'>Your one stop shop for fantasy football information.</h2>
+                    <h4 className='motto'>Your one stop shop for fantasy football information.</h4>
                 </div>
                 <div>
                     <img src={football_player} alt='football player' className='football-player'/>
