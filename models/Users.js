@@ -9,19 +9,6 @@ const saltRounds = 10;
  * Note that all methods are static.
  */
 class Users {
-    /**
-     * Add a User.
-     * @param {string} username - User name
-     */
-    static async addOne(username) {
-        try {
-            const sql = `INSERT INTO users (username) VALUES ('${username}');`;
-            const response = await database.query(sql);
-            return response;
-        } catch (error) {
-            throw error;
-        }
-    }
 
     /**
      * Find a User by Name.
