@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'jquery/dist/jquery.min';
 import 'bootstrap/dist/js/bootstrap.bundle';
+import 'tachyons';
 
 ReactDOM.render(
     (<BrowserRouter>

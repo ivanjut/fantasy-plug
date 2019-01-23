@@ -44,7 +44,7 @@ class Nav extends Component {
                                 <a className="dropdown-item" href="#">Account Settings</a>
                                 {/*<Link exact to='/' className="nav-link dropdown-item">Account Settings</Link>*/}
                                 <div className="dropdown-divider"></div>
-                                <button className='btn btn-danger'>Sign Out</button>
+                                <button className='btn btn-danger' onClick={this.props.onSignOut}>Sign Out</button>
                             </div>
                         </div>
                     </div>

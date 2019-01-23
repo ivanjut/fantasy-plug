@@ -5,6 +5,7 @@ import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import MyTeam from "./components/MyTeam/MyTeam";
+import SignIn from "./components/SignIn/SignIn";
 
 class App extends Component {
 
@@ -12,9 +13,18 @@ class App extends Component {
         super(props);
         this.state = {
             myTeamModal: false,
+            signedIn: false,
         };
         this.toggleModal = this.toggleModal.bind(this);
     }
+
+    onSignIn = () => {
+        this.setState({ signedIn: true});
+    };
+
+    onSignOut = () => {
+        this.setState({ signedIn: false});
+    };
 
     toggleModal = () => {
         this.setState({ myTeamModal: !this.state.myTeamModal });
@@ -22,17 +32,25 @@ class App extends Component {
 
     render() {
         return (
-            <div className="app-container">
-                <Nav toggle={this.toggleModal}/>
+            <div>
+            {this.state.signedIn ?
+                <div className="app-container">
 
-                <div className='main'>
-                    <Main/>
+                    <Nav toggle={this.toggleModal} onSignOut={this.onSignOut}/>
+
+                    <div className='main'>
+                        <Main/>
+                    </div>
+
+                    <Footer/>
+
+                    <MyTeam isOpen={this.state.myTeamModal} toggle={this.toggleModal}/>
+
                 </div>
+                :
 
-                <Footer/>
-
-                <MyTeam isOpen={this.state.myTeamModal} toggle={this.toggleModal}/>
-
+                    <SignIn onSignIn={this.onSignIn}/>
+            }
             </div>
         );
     }
