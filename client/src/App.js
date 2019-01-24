@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './images/logo.svg';
 import './App.css';
+import axios from 'axios';
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
@@ -23,7 +24,10 @@ class App extends Component {
     };
 
     onSignOut = () => {
-        this.setState({ signedIn: false});
+        axios.post("/api/users/signout")
+            .then(() => {
+                this.setState({signedIn: false});
+            });
     };
 
     toggleModal = () => {

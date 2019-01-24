@@ -1,7 +1,45 @@
 import React, { Component } from 'react';
 import './SignIn.css';
+import axios from 'axios';
 
 class SignIn extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: "",
+            password: "",
+            success: "",
+            errors: [],
+        }
+    }
+
+    onUsernameChange = (event) => {
+        this.setState({ username: event.target.value })
+    };
+
+    onPasswordChange = (event) => {
+        this.setState({ password: event.target.value })
+    };
+
+    onSubmitSignIn = (event) => {
+        event.preventDefault();
+        const bodyContent = { username: this.state.username, password: this.state.password };
+        this.setState({ errors: [] });
+        if (this.state.username === "" || this.state.password === "") {
+            this.state.errors.push("Username and password cannot be empty.")
+        } else {
+            axios.post("/api/users/signin/" + bodyContent.username, bodyContent)
+                .then(() => {
+                    this.setState({ success: "Successfully signed in!" });
+                    this.props.onSignIn()
+                })
+                .catch(err => {
+                    console.log(err);
+                    this.state.errors.push("Sign in failed!");
+                })
+        }
+    };
+
     render() {
         return (
             <div className='signin-container'>
@@ -16,21 +54,22 @@ class SignIn extends Component {
                                 <div className="mt3">
                                     <label className="db fw6 lh-copy f6">Username</label>
                                     <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100"
-                                           type="text" name="username" id="username"/>
+                                           type="text" name="username" id="username" onChange={this.onUsernameChange}/>
                                 </div>
                                 <div className="mv3">
                                     <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
                                     <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100"
-                                           type="password" name="password" id="password"/>
+                                           type="password" name="password" id="password" onChange={this.onPasswordChange}/>
                                 </div>
                                 {/*<label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox"/> Remember me</label>*/}
                             </fieldset>
                             <div className="">
                                 <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-                                       type="submit" value="Sign in" onClick={this.props.onSignIn}/>
+                                       type="submit" value="Sign In" onClick={this.onSubmitSignIn}/>
                             </div>
                             <div className="lh-copy mt3">
-                                <a href="#" className="f6 link dim black db">Sign up</a>
+                                {/*<input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"*/}
+                                       {/*type="submit" value="Sign Up" onClick={this.onSubmitSignUp}/>*/}
                                 {/*<a href="#" className="f6 link dim black db">Forgot your password?</a>*/}
                             </div>
                         </form>
