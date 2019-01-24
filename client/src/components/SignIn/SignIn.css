@@ -1,5 +1,24 @@
+.signin-widget {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 50%;
+    z-index: 1;
+}
 
 .title {
     width: 100%;
     text-align: center;
+    color: white;
+}
+
+.signin-container {
+    background-color: var(--fantasy-plug-blue);
+    height: 100vh;
+}
+
+article {
+    background-color: white;
 }

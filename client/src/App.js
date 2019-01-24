@@ -52,8 +52,9 @@ class App extends Component {
 
                 </div>
                 :
-
+                <div className='signin-component-container'>
                     <SignIn onSignIn={this.onSignIn}/>
+                </div>
             }
             </div>
         );

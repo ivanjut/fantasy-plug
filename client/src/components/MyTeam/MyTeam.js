@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './MyTeam.css';
-import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
+import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 
 class MyTeam extends Component {
     render() {
