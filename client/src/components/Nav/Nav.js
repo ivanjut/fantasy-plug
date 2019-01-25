@@ -41,9 +41,9 @@ class Nav extends Component {
                                 Account
                             </a>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style={{textAlign: 'center'}}>
-                                <a className="dropdown-item" href="#">Account Settings</a>
+                                <button className="dropdown-item account-settings" onClick={this.props.toggleAccountSettings}>Account Settings</button>
                                 {/*<Link exact to='/' className="nav-link dropdown-item">Account Settings</Link>*/}
-                                <div className="dropdown-divider"></div>
+                                <div className="dropdown-divider"/>
                                 <button className='btn btn-danger' onClick={this.props.onSignOut}>Sign Out</button>
                             </div>
                         </div>

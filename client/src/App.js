@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import MyTeam from "./components/MyTeam/MyTeam";
 import SignIn from "./components/SignIn/SignIn";
+import AccountSettings from "./components/AccountSettings/AccountSettings";
 
 class App extends Component {
 
@@ -15,8 +16,10 @@ class App extends Component {
         this.state = {
             myTeamModal: false,
             signedIn: false,
+            accountSettings: false,
         };
-        this.toggleModal = this.toggleModal.bind(this);
+        this.toggleMyTeamModal = this.toggleMyTeamModal.bind(this);
+        this.toggleAccountSettings = this.toggleAccountSettings.bind(this);
     }
 
     onSignIn = () => {
@@ -30,8 +33,12 @@ class App extends Component {
             });
     };
 
-    toggleModal = () => {
+    toggleMyTeamModal = () => {
         this.setState({ myTeamModal: !this.state.myTeamModal });
+    };
+
+    toggleAccountSettings = () => {
+        this.setState({ accountSettings: !this.state.accountSettings });
     };
 
     render() {
@@ -40,7 +47,7 @@ class App extends Component {
             {this.state.signedIn ?
                 <div className="app-container">
 
-                    <Nav toggle={this.toggleModal} onSignOut={this.onSignOut}/>
+                    <Nav toggle={this.toggleMyTeamModal} toggleAccountSettings={this.toggleAccountSettings} onSignOut={this.onSignOut}/>
 
                     <div className='main'>
                         <Main/>
@@ -48,7 +55,9 @@ class App extends Component {
 
                     <Footer/>
 
-                    <MyTeam isOpen={this.state.myTeamModal} toggle={this.toggleModal}/>
+                    <AccountSettings isOpen={this.state.accountSettings} toggle={this.toggleAccountSettings}/>
+
+                    <MyTeam isOpen={this.state.myTeamModal} toggle={this.toggleMyTeamModal}/>
 
                 </div>
                 :

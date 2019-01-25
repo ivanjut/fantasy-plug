@@ -37,8 +37,8 @@ class SignIn extends Component {
                 .catch(err => {
                     console.log(err);
                     this.setState({ error: "Sign in failed." });
-                    // this.clearMessages();
-                })
+                    document.getElementById('username').value = '';
+                    document.getElementById('password').value = '';                })
                 .finally(() => {
                     this.clearMessages();
                     this.resetForm();
