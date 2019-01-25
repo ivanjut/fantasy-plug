@@ -32,10 +32,19 @@ class Users {
      */
     static async signUp(username, password) {
         try {
-            await bcrypt.hash(password, saltRounds, function(err, hash) {
-                // Store hash in password DB
+            // await bcrypt.hash(password, saltRounds, function(err, hash) {
+            //     // Store hash in password DB
+            //     try {
+            //         const sql = `INSERT INTO users (username, password) VALUES ('${username}', '${hash}')`;
+            //         database.query(sql);
+            //     } catch (error) {
+            //         throw error;
+            //     }
+            // });
+            await bcrypt.hash(password, saltRounds).then(async function(hash) {
+                // Store hash in your password DB.
                 const sql = `INSERT INTO users (username, password) VALUES ('${username}', '${hash}')`;
-                database.query(sql);
+                await database.query(sql);
             });
         } catch (err) {
             // username already taken

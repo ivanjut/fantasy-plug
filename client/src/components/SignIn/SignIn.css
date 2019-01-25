@@ -22,3 +22,21 @@
 article {
     background-color: white;
 }
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.signin-button {
+    width: 40%;
+}
+
+.error-message {
+    color: red;
+}
+
+.success-message {
+    color: green;
+}
