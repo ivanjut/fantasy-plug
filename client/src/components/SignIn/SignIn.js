@@ -38,7 +38,8 @@ class SignIn extends Component {
                     console.log(err);
                     this.setState({ error: "Sign in failed." });
                     document.getElementById('username').value = '';
-                    document.getElementById('password').value = '';                })
+                    document.getElementById('password').value = '';
+                })
                 .finally(() => {
                     this.clearMessages();
                     this.resetForm();

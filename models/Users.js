@@ -87,6 +87,54 @@ class Users {
             throw err;
         }
     }
+
+    /**
+     * Change username
+     * @param {string} username - username of user
+     * @param {string} newName
+     * @return {User} - user
+     */
+    static async changeUsername(username, newName) {
+        try {
+            const sql = `UPDATE users SET username='${newName}' WHERE username='${username}';`;
+            const response = await database.query(sql);
+            return response;
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Change password
+     * @param {string} username - username of user
+     * @param {string} newPassword - new desired password
+     * @return {User} - user
+     */
+    static async changePassword(username, newPassword) {
+        try {
+            const hash = bcrypt.hashSync(newPassword, saltRounds);
+            const sql = `UPDATE users SET password='${hash}' WHERE username='${username}';`;
+            const response = await database.query(sql);
+            return response;
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * Delete a user
+     * @param {string} username - username of user
+     * @return {User} - user
+     */
+    static async deleteUser(username) {
+        try {
+            const sql = `DELETE FROM users WHERE username='${username}';`;
+            const response = await database.query(sql);
+            return response;
+        } catch (err) {
+            throw err;
+        }
+    }
 }
 
 module.exports = Users;

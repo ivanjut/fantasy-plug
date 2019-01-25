@@ -41,6 +41,17 @@ class App extends Component {
         this.setState({ accountSettings: !this.state.accountSettings });
     };
 
+    onConfirmDeleteAccount = (event) => {
+        event.preventDefault();
+        axios.delete("/api/users/")
+            .then(() => {
+                this.setState( {signedIn: false} );
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    };
+
     render() {
         return (
             <div>
@@ -55,7 +66,7 @@ class App extends Component {
 
                     <Footer/>
 
-                    <AccountSettings isOpen={this.state.accountSettings} toggle={this.toggleAccountSettings}/>
+                    <AccountSettings isOpen={this.state.accountSettings} toggle={this.toggleAccountSettings} onConfirmDeleteAccount={this.onConfirmDeleteAccount}/>
 
                     <MyTeam isOpen={this.state.myTeamModal} toggle={this.toggleMyTeamModal}/>
 
