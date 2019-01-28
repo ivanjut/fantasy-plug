@@ -1,0 +1,21 @@
+#card:hover {
+    cursor: pointer;
+}
+
+.position {
+    color: darkgrey;
+    width: 100%;
+    text-align: right;
+}
+
+.first-name {
+    color: black;
+    width: 100%;
+    text-align: left;
+}
+
+.last-name {
+    color: var(--fantasy-plug-blue);
+    width: 100%;
+    text-align: left;
+}

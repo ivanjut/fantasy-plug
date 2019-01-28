@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Players.css';
 import PlayerDisplay from "./PlayerDisplay/PlayerDisplay";
+import axios from 'axios';
 
 class Players extends Component {
     constructor(props) {
@@ -11,7 +12,12 @@ class Players extends Component {
     }
 
     // on mount populate displayedPlayers
-
+    componentDidMount() {
+        axios.get("/api/players/all/").then(res => {
+            console.log(res.data);
+            this.setState({ displayedPlayers: res.data });
+        });
+    }
 
     render() {
         return (
@@ -30,7 +36,7 @@ class Players extends Component {
                                     <PlayerDisplay key={i}
                                         firstName={player.firstName}
                                         lastName={player.lastName}
-                                        position={player.position}
+                                        position={player.pos}
                                     />
                                 );
                             })
