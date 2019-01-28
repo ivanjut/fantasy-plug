@@ -2,6 +2,10 @@
     cursor: pointer;
 }
 
+#card {
+    width: 255px;
+}
+
 .position {
     color: darkgrey;
     width: 100%;

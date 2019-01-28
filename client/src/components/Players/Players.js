@@ -8,10 +8,10 @@ class Players extends Component {
         super(props);
         this.state = {
             displayedPlayers: [],
+            searchField: "",
         };
     }
 
-    // on mount populate displayedPlayers
     componentDidMount() {
         axios.get("/api/players/all/").then(res => {
             console.log(res.data);
@@ -19,7 +19,17 @@ class Players extends Component {
         });
     }
 
+    onSearchChange = (event) => {
+        this.setState({ searchField: event.target.value })
+    };
+
     render() {
+
+        const filteredPlayers = this.state.displayedPlayers.filter(player =>{
+            return player.firstName.toLowerCase().includes(this.state.searchField.toLowerCase()) ||
+                player.lastName.toLowerCase().includes(this.state.searchField.toLowerCase());
+        });
+
         return (
             <div className="jumbotron">
                 <h1 className="display-4">Players</h1>
@@ -27,11 +37,16 @@ class Players extends Component {
                 <hr className="my-4"/>
                 <div className='page-content-container'>
                     <div className='filter-container'>
-
+                        <h3 style={{margin: '5%'}}>Filters</h3>
+                        <hr className="my-4"/>
+                        <div className='pa2'>
+                            <input className="form-control mr-sm-2" type="search" placeholder="search players" aria-label="Search"
+                                onChange={this.onSearchChange}/>
+                        </div>
                     </div>
                     <div className='player-container'>
                         {
-                            this.state.displayedPlayers.map((player, i) => {
+                            filteredPlayers.map((player, i) => {
                                 return (
                                     <PlayerDisplay key={i}
                                         firstName={player.firstName}
