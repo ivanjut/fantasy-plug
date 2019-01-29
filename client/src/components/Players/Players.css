@@ -7,13 +7,13 @@
 }
 
 .filter-container {
-    border: 1px black solid;
     width: 300px;
     text-align: center;
+    overflow: scroll;
 }
 
 .player-container {
-    border: 1px black solid;
+    border: 1px var(--fantasy-plug-blue) solid;
     flex-grow: 1;
     margin-left: 5%;
     display: flex;
@@ -22,4 +22,14 @@
     overflow: scroll;
     align-items: flex-start;
     flex-flow: wrap;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.pa2 {
+    padding-bottom: 10%;
 }

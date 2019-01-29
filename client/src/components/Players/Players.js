@@ -123,9 +123,9 @@ class Players extends Component {
                                 <label className="form-check-label" htmlFor="te">TE</label>
                             </div>
                             <div className='buttons'>
-                                <input className="btn btn-secondary select-all-button"
+                                <input className="btn btn-sm btn-secondary select-all-button"
                                        type="submit" value="Select All" onClick={this.onSelectAll}/>
-                                <input className="btn btn-secondary deselect-all-button"
+                                <input className="btn btn-sm btn-secondary deselect-all-button"
                                        type="submit" value="Deselect All" onClick={this.onDeselectAll}/>
                             </div>
                         </div>
