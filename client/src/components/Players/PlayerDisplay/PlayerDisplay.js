@@ -6,8 +6,9 @@ class PlayerDisplay extends Component {
         return (
             <div className='tc grow bg-light-green br3 pa3 ma2 dib bw2 shadow-5' id='card'>
                 <div className='player-info'>
-                    <div className='position'>
+                    <div className='position-team'>
                         <h6>{this.props.position}</h6>
+                        <h6>{this.props.team}</h6>
                     </div>
                     <div className='first-name'>
                         <p>{this.props.firstName}</p>

@@ -6,10 +6,10 @@
     width: 255px;
 }
 
-.position {
+.position-team {
+    display: flex;
+    justify-content: space-between;
     color: darkgrey;
-    width: 100%;
-    text-align: right;
 }
 
 .first-name {
