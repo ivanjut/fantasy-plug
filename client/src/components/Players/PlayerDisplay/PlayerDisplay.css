@@ -4,12 +4,13 @@
 
 #card {
     width: 255px;
+    background-color: var(--fantasy-plug-blue);
 }
 
 .position-team {
     display: flex;
     justify-content: space-between;
-    color: darkgrey;
+    color: lightblue;
 }
 
 .first-name {
@@ -19,7 +20,7 @@
 }
 
 .last-name {
-    color: var(--fantasy-plug-blue);
+    color: white;
     width: 100%;
     text-align: left;
 }

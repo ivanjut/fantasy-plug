@@ -7,13 +7,16 @@
 }
 
 .filter-container {
+    border: 1px black solid;
+    border-radius: 20px;
+    padding: 1%;
     width: 300px;
     text-align: center;
     overflow: scroll;
 }
 
 .player-container {
-    border: 1px var(--fantasy-plug-blue) solid;
+    border: 1px black solid;
     flex-grow: 1;
     margin-left: 5%;
     display: flex;
@@ -22,14 +25,21 @@
     overflow: scroll;
     align-items: flex-start;
     flex-flow: wrap;
+    /*border-top-left-radius: 25px;*/
+    /*border-top-right-radius: 25px;*/
+    border-radius: 20px;
 }
 
-.buttons {
+.pos-buttons {
     display: flex;
     justify-content: space-around;
     flex-flow: wrap;
 }
 
-.pa2 {
+.filter-group {
     padding-bottom: 10%;
+}
+
+.no-players-message {
+    margin: auto;
 }

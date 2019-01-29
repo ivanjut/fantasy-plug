@@ -55,8 +55,8 @@ class Players extends Component {
     render() {
 
         const filteredPlayersSearch = this.state.displayedPlayers.filter(player => {
-            return player.firstName.toLowerCase().includes(this.state.searchField.toLowerCase()) ||
-                player.lastName.toLowerCase().includes(this.state.searchField.toLowerCase());
+            const fullName = player.firstName.toLowerCase() + " " + player.lastName.toLowerCase();
+            return fullName.includes(this.state.searchField.toLowerCase())
         });
 
         const selectedPositionFilters = [];
@@ -94,13 +94,13 @@ class Players extends Component {
                         <h3 style={{margin: '5%'}}>Filters</h3>
                         <hr className="my-4"/>
 
-                        <div className='pa2'>
+                        <div className='filter-group pa2'>
                             <h5>Search</h5>
                             <input className="form-control mr-sm-2" type="search" placeholder="search players" aria-label="Search"
                                 onChange={this.onSearchChange}/>
                         </div>
 
-                        <div className='pa2'>
+                        <div className='filter-group pa2'>
                             <h5>Position</h5>
                             <div className="form-check form-check-inline">
                                 <input className="form-check-input" name="qbChecked" type="checkbox" id="qb"
@@ -122,7 +122,7 @@ class Players extends Component {
                                        value="te" checked={this.state.teChecked} onChange={this.onPositionFilterChange}/>
                                 <label className="form-check-label" htmlFor="te">TE</label>
                             </div>
-                            <div className='buttons'>
+                            <div className='pos-buttons'>
                                 <input className="btn btn-sm btn-secondary select-all-button"
                                        type="submit" value="Select All" onClick={this.onSelectAll}/>
                                 <input className="btn btn-sm btn-secondary deselect-all-button"
@@ -130,7 +130,7 @@ class Players extends Component {
                             </div>
                         </div>
 
-                        <div className='pa2'>
+                        <div className='filter-group pa2'>
                             <h5>Team</h5>
                             <div className="form-group">
                                 <select className="form-control" id="team-filter" value={this.state.teamFilter}
@@ -174,7 +174,11 @@ class Players extends Component {
 
                     </div>
                     <div className='player-container'>
-                        {
+                        { filteredPlayersTeam.length === 0 ?
+                            <div className='no-players-message'>
+                                <h4>No players to display.</h4>
+                            </div>
+                            :
                             filteredPlayersTeam.map((player, i) => {
                                 return (
                                     <PlayerDisplay key={i}
