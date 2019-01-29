@@ -1,0 +1,4 @@
+.player-chips {
+    display: flex;
+    flex-flow: wrap;
+}
